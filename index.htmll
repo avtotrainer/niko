@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ka" data-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{სახელი გვარი}} — პორტფოლიო</title>
+  <meta name="description" content="{{მოკლე აღწერა: ვინ ხარ და რას სწავლობ/საქმიანობ}}" />
+  <meta name="author" content="{{სახელი გვარი}}" />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{სახელი გვარი}} — პორტფოლიო" />
+  <meta property="og:description" content="{{მოკლე აღწერა}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{https://user.github.io/portfolio}}" />
+  <meta property="og:image" content="{{https://user.github.io/portfolio/cover.jpg}}" />
+  <link rel="icon" href="{{/assets/favicon.png}}" />
+  <style>
+    /* ---- Base / Variables ---- */
+    :root{
+      --bg: #0b1220; --bg-soft:#111827; --text:#e5e7eb; --muted:#9ca3af;
+      --card:#0f172a; --brand:#22d3ee; --brand-2:#38bdf8; --ring:#67e8f9;
+      --maxw: 980px; --radius:16px;
+      --shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme:light){
+      [data-theme="auto"]{
+        --bg:#f8fafc; --bg-soft:#ffffff; --text:#111827; --muted:#475569;
+        --card:#ffffff; --brand:#0ea5e9; --brand-2:#22c55e; --ring:#60a5fa;
+        --shadow: 0 10px 25px rgba(2,6,23,.08);
+      }
+    }
+    [data-theme="light"]{ /* optional manual toggle */
+      --bg:#f8fafc; --bg-soft:#ffffff; --text:#111827; --muted:#475569;
+      --card:#ffffff; --brand:#0ea5e9; --brand-2:#22c55e; --ring:#60a5fa;
+      --shadow: 0 10px 25px rgba(2,6,23,.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
+      color:var(--text); background:linear-gradient(120deg, var(--bg) 0%, var(--bg-soft) 100%);
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* ---- Header / Nav ---- */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in oklab, var(--bg-soft) 80%, transparent)}
+    nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .logo{font-weight:800; letter-spacing:.4px}
+    .nav-links{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .btn, button, input[type="submit"]{
+      background:linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color:#0b1220; border:0; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer;
+      box-shadow:var(--shadow)
+    }
+    .btn.ghost{
+      background:transparent; color:var(--text); border:1px solid color-mix(in oklab, var(--text) 22%, transparent);
+      box-shadow:none
+    }
+    .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip-link:focus{left:12px; top:12px; width:auto; height:auto; padding:8px 10px; background:#fff; color:#111; border-radius:8px}
+
+    /* ---- Hero ---- */
+    .hero{padding:56px 0 24px}
+    .hero .wrap{
+      display:grid; gap:20px; grid-template-columns: 1.2fr .8fr; align-items:center;
+    }
+    .hero-card{
+      background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
+      border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)
+    }
+    h1{font-size:clamp(28px, 4vw, 44px); line-height:1.15; margin:0 0 8px}
+    .lead{font-size:18px; color:var(--muted); margin:0 0 16px}
+    .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:color-mix(in oklab, var(--brand) 22%, transparent); color:#062a2f; font-weight:700}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+
+    .photo{
+      aspect-ratio:1/1; border-radius:18px; overflow:hidden; border:2px solid color-mix(in oklab, var(--brand) 60%, transparent);
+      box-shadow:var(--shadow)
+    }
+    .photo img{width:100%; height:100%; object-fit:cover}
+
+    /* ---- Sections ---- */
+    section{padding:28px 0}
+    section h2{margin:0 0 8px; font-size:clamp(22px, 3.2vw, 30px)}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid; gap:16px}
+    .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
+    .grid.cols-2{grid-template-columns: repeat(2, 1fr)}
+    @media (max-width: 820px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
+    }
+    .card{
+      background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
+      border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:10px
+    }
+    .tag{display:inline-block; padding:4px 8px; border-radius:999px; background:color-mix(in oklab, var(--text) 12%, transparent); color:var(--text); font-size:12px}
+
+    /* ---- Footer ---- */
+    footer{padding:32px 0 48px; color:var(--muted); font-size:14px}
+    .sep{height:1px; background:color-mix(in oklab, var(--text) 12%, transparent); margin:8px 0 20px}
+
+    /* ---- Forms ---- */
+    form{display:grid; gap:10px}
+    input, textarea{
+      width:100%; padding:10px 12px; border-radius:10px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent);
+      background:transparent; color:var(--text)
+    }
+    input:focus, textarea:focus, .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
+
+    /* ---- Print ---- */
+    @media print{
+      header, .cta a.btn, .theme-toggle{display:none !important}
+      body{background:#fff; color:#000}
+      .card, .hero-card{border:1px solid #ccc; box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">გადასვლა მთავარზე</a>
+  <header>
+    <div class="container">
+      <nav aria-label="მთავარი ნავიგაცია">
+        <div class="logo">👩‍🎓 {{სახელი}} <span class="muted">· პორტფოლიო</span></div>
+        <div class="nav-links">
+          <a href="#about">ჩემ შესახებ</a>
+          <a href="#projects">პროექტები</a>
+          <a href="#skills">უნარები</a>
+          <a href="#contact">კონტაქტი</a>
+          <button class="btn ghost theme-toggle" type="button" aria-label="თემის გადართვა">🌓</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="wrap">
+          <div class="hero-card">
+            <span class="chip">სტუდენტი · ვებ/ლინუქსი</span>
+            <h1>ნიკოლოზ ჯიბლაძე</h1>
+            <p class="lead">ქობულეთის № 1 საჯარო სკოლა</p>
+            <div class="cta">
+              <a class="btn" href="mailto:{{you@example.com}}">✉️ დამიკავშირდი</a>
+              <a class="btn ghost" href="{{https://github.com/username}}" target="_blank" rel="noopener">🐙 GitHub</a>
+              <a class="btn ghost" href="{{/cv.pdf}}" target="_blank" rel="noopener">⬇️ CV (PDF)</a>
+            </div>
+          </div>
+          <figure class="photo">
+            <img src="{{/assets/me.jpg}}" alt="ნიკოლოზ ჯიბლაძის ფოტტო" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2>ჩემ შესახებ</h2>
+        <p class="muted">
+          {{მოკლე ბიო}}. ვმუშაობ Linux-ზე (Manjaro/Ubuntu), ვსაქმიანობ GitHub Pages-ით სტატიკური საიტების გამოქვეყნებით,
+          მაინტერესებს {{ალგორითმები, UI, უსაფრთხოება}}. აქტიური წევრი ვარ {{კლუბი/სკოლა}}.
+        </p>
+        <div class="grid cols-3">
+          <div class="card">
+            <strong>განათლება</strong>
+            <span class="muted">{{სკოლის/კურსის სახელი, წელი}}</span>
+          </div>
+          <div class="card">
+            <strong>ჯილდოები</strong>
+            <span class="muted">{{ოლიმპიადა/ჰაკათონი, ადგილი}}</span>
+          </div>
+          <div class="card">
+            <strong>ჰობი</strong>
+            <span class="muted">{{რედიაქტორი, მუსიკა, ლაშქრობა, რობოტიკა…}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <h2>პროექტები</h2>
+        <p class="muted">აირჩიე 3–6 საუკეთესო ნამუშევარი. თითო ბარათში – მოკლე აღწერა, ტექნოლოგიები, ბმულები.</p>
+        <div class="grid cols-3">
+          <!-- Project Card -->
+          <article class="card">
+            <header>
+              <h3 style="margin:0">📦 {{პროექტი 1}}</h3>
+              <span class="tag">HTML/CSS</span> <span class="tag">JS</span>
+            </header>
+            <p class="muted">{{ერთი აბზაცი: რა აკეთებს პროექტი, ვის სჭირდება, რა ისწავლე}}</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn ghost" href="{{https://user.github.io/proj1}}" target="_blank" rel="noopener">Live</a>
+              <a class="btn ghost" href="{{https://github.com/user/proj1}}" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3 style="margin:0">🗺️ {{პროექტი 2}}</h3>
+              <span class="tag">Python</span> <span class="tag">CLI</span>
+            </header>
+            <p class="muted">{{აღწერა}}</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn ghost" href="{{#}}" target="_blank" rel="noopener">Live</a>
+              <a class="btn ghost" href="{{https://github.com/user/proj2}}" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3 style="margin:0">🔐 {{პროექტი 3}}</h3>
+              <span class="tag">Bash</span> <span class="tag">Linux</span>
+            </header>
+            <p class="muted">{{აღწერა}}</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn ghost" href="{{#}}" target="_blank" rel="noopener">Live</a>
+              <a class="btn ghost" href="{{https://github.com/user/proj3}}" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <h2>უნარები</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <strong>ტექნოლოგიები</strong>
+            <p class="muted">HTML · CSS · JavaScript · Git · GitHub · Linux (Manjaro/Ubuntu) · Bash · WSL/WSLg</p>
+          </div>
+          <div class="card">
+            <strong>რბილი უნარები</strong>
+            <p class="muted">გუნდური მუშაობა · პრეზენტაცია · პრობლემების გადაჭრა · დროის მართვა</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2>კონტაქტი</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <p class="muted">მიწერე ელფოსტაზე ან მომძებნე GitHub-ზე.</p>
+            <p>✉️ <a href="mailto:{{you@example.com}}">{{you@example.com}}</a></p>
+            <p>🐙 <a href="{{https://github.com/username}}" target="_blank" rel="noopener">github.com/username</a></p>
+          </div>
+          <div class="card">
+            <form action="https://formspree.io/f/{{your-id}}" method="POST">
+              <label>
+                სახელი
+                <input name="name" required />
+              </label>
+              <label>
+                ელ-ფოსტა
+                <input type="email" name="email" required />
+              </label>
+              <label>
+                შეტყობინება
+                <textarea name="message" rows="3" required></textarea>
+              </label>
+              <input class="btn" type="submit" value="გაგზავნა" />
+              <small class="muted">* Formspree/თავსებადი სერვისის ID ჩასვი ან ამოიღე ფორმა.</small>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="sep"></div>
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+        <span>© <span id="y"></span> {{სახელი გვარი}}</span>
+        <span class="muted">განახლდა: <span id="lm"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ბოლო განახლების თარიღი + წელი
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('lm').textContent = new Date(document.lastModified).toLocaleDateString('ka-GE');
+
+    // თემის გადამრთველი (light/dark/auto)
+    const btn = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+    const KEY='theme-pref';
+    const set = v => { root.setAttribute('data-theme', v); localStorage.setItem(KEY, v); };
+    const get = () => localStorage.getItem(KEY) || 'auto';
+    set(get());
+    btn?.addEventListener('click', ()=>{
+      const cur=get();
+      const next = cur==='auto' ? 'light' : (cur==='light' ? 'auto' : 'auto');
+      // მსუბუქი ციკლი: auto -> light -> auto (სურვილით დაამატე 'dark')
+      set(next);
+      btn.textContent = next==='light' ? '🌞' : '🌓';
+    });
+  </script>
+
+  <!-- (არასავალდებულო) სტრუქტურირებული მონაცემები -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"{{სახელი გვარი}}",
+    "url":"{{https://user.github.io/portfolio}}",
+    "email":"mailto:{{you@example.com}}",
+    "sameAs":["https://github.com/{{username}}"]
+  }
+  </script>
+</body>
+</html>
