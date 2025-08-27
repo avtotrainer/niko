@@ -1,279 +1,303 @@
 <!doctype html>
-<html lang="ka" data-theme="auto">
+<html lang="ka">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{სახელი გვარი}} — პორტფოლიო</title>
-  <meta name="description" content="{{მოკლე აღწერა: ვინ ხარ და რას სწავლობ/საქმიანობ}}" />
-  <meta name="author" content="{{სახელი გვარი}}" />
-  <meta name="theme-color" content="#0f172a" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="{{სახელი გვარი}} — პორტფოლიო" />
-  <meta property="og:description" content="{{მოკლე აღწერა}}" />
+  <title>ნიკოლოზ ჯიბლაძე — პორტფოლიო</title>
+  <meta name="description" content="ნიკოლოზ ჯიბლაძე — საუკეთესო შედეგების მქონე მოსწავლე: Linux, Bash, Git/GitHub, GitHub Pages, WSLg, პროექტები და მიღწევები." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta property="og:title" content="ნიკოლოზ ჯიბლაძე — პორტფოლიო" />
+  <meta property="og:description" content="Linux · Bash · Git/GitHub · GitHub Pages · WSLg · პროექტები და მიღწევები" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{https://user.github.io/portfolio}}" />
-  <meta property="og:image" content="{{https://user.github.io/portfolio/cover.jpg}}" />
-  <link rel="icon" href="{{/assets/favicon.png}}" />
-  <style>
-    /* ---- Base / Variables ---- */
-    :root{
-      --bg: #0b1220; --bg-soft:#111827; --text:#e5e7eb; --muted:#9ca3af;
-      --card:#0f172a; --brand:#22d3ee; --brand-2:#38bdf8; --ring:#67e8f9;
-      --maxw: 980px; --radius:16px;
-      --shadow: 0 10px 25px rgba(0,0,0,.25);
-    }
-    @media (prefers-color-scheme:light){
-      [data-theme="auto"]{
-        --bg:#f8fafc; --bg-soft:#ffffff; --text:#111827; --muted:#475569;
-        --card:#ffffff; --brand:#0ea5e9; --brand-2:#22c55e; --ring:#60a5fa;
-        --shadow: 0 10px 25px rgba(2,6,23,.08);
-      }
-    }
-    [data-theme="light"]{ /* optional manual toggle */
-      --bg:#f8fafc; --bg-soft:#ffffff; --text:#111827; --muted:#475569;
-      --card:#ffffff; --brand:#0ea5e9; --brand-2:#22c55e; --ring:#60a5fa;
-      --shadow: 0 10px 25px rgba(2,6,23,.08);
-    }
+  <meta property="og:url" content="https://avtotrainer.github.io/niko" />
 
+  <style>
+    :root{
+      --bg:#0b1220; --bg2:#0f172a; --ink:#e5e7eb; --muted:#94a3b8;
+      --card:#0c1426; --border:#1f2a44;
+      --brand:#0ea5e9; --brand2:#f59e0b; --ring:#22d3ee;
+      --r:18px; --shadow:0 18px 42px rgba(2,6,23,.45); --maxw:1100px;
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font:16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
-      color:var(--text); background:linear-gradient(120deg, var(--bg) 0%, var(--bg-soft) 100%);
+      margin:0; color:var(--ink);
+      background:
+        radial-gradient(1100px 600px at -10% -20%, #16325b88, transparent 55%),
+        radial-gradient(900px 500px at 120% 0%, #0a3a5a66, transparent 55%),
+        linear-gradient(160deg, var(--bg), var(--bg2));
+      font:16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial;
     }
-    a{color:var(--brand); text-decoration:none}
+    a{color:#7dd3fc; text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
 
-    /* ---- Header / Nav ---- */
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in oklab, var(--bg-soft) 80%, transparent)}
-    nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
-    .logo{font-weight:800; letter-spacing:.4px}
-    .nav-links{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
-    .btn, button, input[type="submit"]{
-      background:linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
-      color:#0b1220; border:0; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer;
-      box-shadow:var(--shadow)
+    /* Header */
+    header{position:sticky; top:0; z-index:10; backdrop-filter:blur(8px); background:#0b1220cc; border-bottom:1px solid var(--border)}
+    nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .logo{font-weight:900; letter-spacing:.3px}
+    .nav{display:flex; gap:14px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+      background:linear-gradient(135deg, var(--brand), #2563eb);
+      color:#081421; border:0; padding:10px 14px; border-radius:12px; font-weight:800; box-shadow:var(--shadow)
     }
-    .btn.ghost{
-      background:transparent; color:var(--text); border:1px solid color-mix(in oklab, var(--text) 22%, transparent);
-      box-shadow:none
+    .btn.ghost{background:transparent; color:var(--ink); border:1px solid var(--border); box-shadow:none}
+    .chip{
+      display:inline-flex; align-items:center; gap:6px; padding:6px 10px;
+      border-radius:999px; background:#08243a; color:#c7f9ff; font-weight:800; border:1px solid #0f2d4b
     }
-    .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip-link:focus{left:12px; top:12px; width:auto; height:auto; padding:8px 10px; background:#fff; color:#111; border-radius:8px}
 
-    /* ---- Hero ---- */
-    .hero{padding:56px 0 24px}
-    .hero .wrap{
-      display:grid; gap:20px; grid-template-columns: 1.2fr .8fr; align-items:center;
+    /* Hero */
+    .hero{padding:52px 0 28px}
+    .hero-wrap{display:grid; grid-template-columns: .9fr 1.1fr; gap:26px; align-items:center}
+    @media (max-width:900px){ .hero-wrap{grid-template-columns:1fr} }
+    .avatar{
+      border-radius:22px; overflow:hidden; border:2px solid #38bdf8; box-shadow:var(--shadow);
+      background:radial-gradient(100% 100% at 50% 0%, #0e1b36, #0b152b); display:grid; place-items:center; aspect-ratio:3/4
     }
-    .hero-card{
-      background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
-      border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)
+    .avatar svg{width:88%; height:88%}
+    .card{
+      background:linear-gradient(180deg, #0c1426, #0a1323); border:1px solid var(--border);
+      border-radius:var(--r); padding:22px; box-shadow:var(--shadow)
     }
-    h1{font-size:clamp(28px, 4vw, 44px); line-height:1.15; margin:0 0 8px}
-    .lead{font-size:18px; color:var(--muted); margin:0 0 16px}
-    .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:color-mix(in oklab, var(--brand) 22%, transparent); color:#062a2f; font-weight:700}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    h1{margin:0 0 8px; font:900 clamp(28px,4.6vw,48px)/1.1 ui-serif, Georgia, serif}
+    .lead{color:var(--muted); font-size:18px; margin:6px 0 12px}
 
-    .photo{
-      aspect-ratio:1/1; border-radius:18px; overflow:hidden; border:2px solid color-mix(in oklab, var(--brand) 60%, transparent);
-      box-shadow:var(--shadow)
-    }
-    .photo img{width:100%; height:100%; object-fit:cover}
-
-    /* ---- Sections ---- */
+    /* Sections */
     section{padding:28px 0}
-    section h2{margin:0 0 8px; font-size:clamp(22px, 3.2vw, 30px)}
+    section h2{margin:0 0 10px; font:900 clamp(22px,3.3vw,30px)/1.2 ui-serif, Georgia, serif}
+    .grid{display:grid; gap:14px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){ .cols-3,.cols-2{grid-template-columns:1fr} }
+    .card.sm{padding:16px}
     .muted{color:var(--muted)}
 
-    .grid{display:grid; gap:16px}
-    .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
-    .grid.cols-2{grid-template-columns: repeat(2, 1fr)}
-    @media (max-width: 820px){
-      .hero .wrap{grid-template-columns:1fr}
-      .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
-    }
-    .card{
-      background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
-      border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:10px
-    }
-    .tag{display:inline-block; padding:4px 8px; border-radius:999px; background:color-mix(in oklab, var(--text) 12%, transparent); color:var(--text); font-size:12px}
+    /* Badges / list */
+    .badge{display:inline-block; padding:4px 10px; border-radius:999px; background:#0b274d; color:#c7d2fe; font-size:12px; border:1px solid #123a73}
 
-    /* ---- Footer ---- */
-    footer{padding:32px 0 48px; color:var(--muted); font-size:14px}
-    .sep{height:1px; background:color-mix(in oklab, var(--text) 12%, transparent); margin:8px 0 20px}
+    /* Progress bars */
+    .bar{height:10px; background:#0a2036; border:1px solid #123a73; border-radius:999px; overflow:hidden}
+    .bar > i{display:block; height:100%; background:linear-gradient(90deg, #22d3ee, #3b82f6); width:0}
 
-    /* ---- Forms ---- */
-    form{display:grid; gap:10px}
-    input, textarea{
-      width:100%; padding:10px 12px; border-radius:10px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent);
-      background:transparent; color:var(--text)
-    }
-    input:focus, textarea:focus, .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
+    /* Timeline */
+    .tl{border-left:2px dashed #1f355b; padding-left:12px}
+    .tli{margin:0 0 12px}
+    .tli b{color:#e2e8f0}
 
-    /* ---- Print ---- */
-    @media print{
-      header, .cta a.btn, .theme-toggle{display:none !important}
-      body{background:#fff; color:#000}
-      .card, .hero-card{border:1px solid #ccc; box-shadow:none}
-    }
+    /* Code box */
+    pre{margin:10px 0; padding:12px; border-radius:12px; background:#0b1a2f; border:1px solid #163a63; overflow:auto}
+
+    /* Footer */
+    footer{padding:30px 0 44px; color:#9aa6bb; border-top:1px solid var(--border); background:#0a101c}
+    .foot{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
+    .sep{height:1px; background:var(--border); margin:12px 0 18px}
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">გადასვლა მთავარზე</a>
   <header>
     <div class="container">
       <nav aria-label="მთავარი ნავიგაცია">
-        <div class="logo">👩‍🎓 {{სახელი}} <span class="muted">· პორტფოლიო</span></div>
-        <div class="nav-links">
-          <a href="#about">ჩემ შესახებ</a>
+        <div class="logo">🚀 ნიკოლოზ ჯიბლაძე <span class="muted">· პორტფოლიო</span></div>
+        <div class="nav">
+          <a href="#results">მიღწევები</a>
           <a href="#projects">პროექტები</a>
           <a href="#skills">უნარები</a>
-          <a href="#contact">კონტაქტი</a>
-          <button class="btn ghost theme-toggle" type="button" aria-label="თემის გადართვა">🌓</button>
+          <a href="#timeline">ქრონო</a>
+          <a href="#blog">ბლოგი</a>
+          <a class="btn ghost" href="mailto:nikolozi409@din.ge">✉️ წერილი</a>
+          <a class="btn" href="https://avtotrainer.github.io/niko" target="_blank" rel="noopener">🌐 Live</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <!-- Hero -->
+  <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <div class="wrap">
-          <div class="hero-card">
-            <span class="chip">სტუდენტი · ვებ/ლინუქსი</span>
-            <h1>ნიკოლოზ ჯიბლაძე</h1>
-            <p class="lead">ქობულეთის № 1 საჯარო სკოლა</p>
-            <div class="cta">
-              <a class="btn" href="mailto:{{you@example.com}}">✉️ დამიკავშირდი</a>
-              <a class="btn ghost" href="{{https://github.com/username}}" target="_blank" rel="noopener">🐙 GitHub</a>
-              <a class="btn ghost" href="{{/cv.pdf}}" target="_blank" rel="noopener">⬇️ CV (PDF)</a>
+        <div class="hero-wrap">
+          <!-- Boy silhouette with glasses -->
+          <figure class="avatar" aria-label="პროფილის სილუეტი სათვალეებით">
+            <svg viewBox="0 0 128 128" role="img" aria-label="ბიჭის სილუეტი სათვალეებით">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#38bdf8"/>
+                  <stop offset="1" stop-color="#3b82f6"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="116" height="116" rx="18" fill="url(#g)" opacity=".16"/>
+              <!-- თავი -->
+              <circle cx="64" cy="46" r="21" fill="#93c5fd"/>
+              <!-- სათვალე -->
+              <rect x="45" y="40" width="14" height="8" rx="3" fill="#0ea5e9"/>
+              <rect x="69" y="40" width="14" height="8" rx="3" fill="#0ea5e9"/>
+              <rect x="59" y="43" width="10" height="3" fill="#0ea5e9"/>
+              <!-- მხრები/ტანი -->
+              <path d="M18 108c8-24 28-36 46-36s38 12 46 36" fill="#60a5fa"/>
+            </svg>
+          </figure>
+
+          <div class="card">
+            <span class="chip">Linux · Bash · Git/GitHub · GitHub Pages · WSLg</span>
+            <h1>გამარჯობა! მე ვარ ნიკოლოზ ჯიბლაძე</h1>
+            <p class="lead">
+              ამ ნაკადში მივიჩნევი <b>ერთ-ერთ უძლიერეს მონაწილედ</b>. პრაქტიკულად ვისწავლე Manjaro Linux-ის დაყენება/განახლება,
+              ტერმინალის ქურასები, Git/GitHub და სტატიკური საიტების გამოქვეყნება GitHub Pages-ზე. Windows-ში <b>WSLg ავამუშავე</b>,
+              რომ Linux აპები გრაფიკულად გამეშვა.
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn ghost" href="mailto:nikolozi409@din.ge">ელ-ფოსტა</a>
+              <a class="btn ghost" href="https://github.com/avtotrainer/niko" target="_blank" rel="noopener">🐙 GitHub</a>
+              <a class="btn" href="https://avtotrainer.github.io/niko" target="_blank" rel="noopener">🔗 ჩემი საიტი</a>
             </div>
           </div>
-          <figure class="photo">
-            <img src="{{/assets/me.jpg}}" alt="ნიკოლოზ ჯიბლაძის ფოტტო" />
-          </figure>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
+    <!-- RESULTS / HIGHLIGHTS -->
+    <section id="results">
       <div class="container">
-        <h2>ჩემ შესახებ</h2>
-        <p class="muted">
-          {{მოკლე ბიო}}. ვმუშაობ Linux-ზე (Manjaro/Ubuntu), ვსაქმიანობ GitHub Pages-ით სტატიკური საიტების გამოქვეყნებით,
-          მაინტერესებს {{ალგორითმები, UI, უსაფრთხოება}}. აქტიური წევრი ვარ {{კლუბი/სკოლა}}.
-        </p>
+        <h2>მიღწევები (Highlights)</h2>
         <div class="grid cols-3">
-          <div class="card">
-            <strong>განათლება</strong>
-            <span class="muted">{{სკოლის/კურსის სახელი, წელი}}</span>
-          </div>
-          <div class="card">
-            <strong>ჯილდოები</strong>
-            <span class="muted">{{ოლიმპიადა/ჰაკათონი, ადგილი}}</span>
-          </div>
-          <div class="card">
-            <strong>ჰობი</strong>
-            <span class="muted">{{რედიაქტორი, მუსიკა, ლაშქრობა, რობოტიკა…}}</span>
-          </div>
+          <article class="card sm">
+            <h3 style="margin:0 0 6px">🔧 Linux ოსტატობა</h3>
+            <p class="muted">Manjaro GNOME-ის ინსტალაცია, განახლება, პაკეტების მართვა, ძირითადი ადმინისტრირება ტერმინალით.</p>
+          </article>
+          <article class="card sm">
+            <h3 style="margin:0 0 6px">🧩 Bash & Automations</h3>
+            <p class="muted">სკრიპტები commit/push ავტომატიზაციისთვის, ჰაშებით ფაილების ვალიდაცია (SHA-256).</p>
+          </article>
+          <article class="card sm">
+            <h3 style="margin:0 0 6px">🌐 GitHub Pages</h3>
+            <p class="muted">პერსონალური საიტების დიზაინი და <b>გამოქვეყნება</b>, თანამშრომლობა Pull Request-ებით.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="container">
         <h2>პროექტები</h2>
-        <p class="muted">აირჩიე 3–6 საუკეთესო ნამუშევარი. თითო ბარათში – მოკლე აღწერა, ტექნოლოგიები, ბმულები.</p>
         <div class="grid cols-3">
-          <!-- Project Card -->
           <article class="card">
-            <header>
-              <h3 style="margin:0">📦 {{პროექტი 1}}</h3>
-              <span class="tag">HTML/CSS</span> <span class="tag">JS</span>
-            </header>
-            <p class="muted">{{ერთი აბზაცი: რა აკეთებს პროექტი, ვის სჭირდება, რა ისწავლე}}</p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn ghost" href="{{https://user.github.io/proj1}}" target="_blank" rel="noopener">Live</a>
-              <a class="btn ghost" href="{{https://github.com/user/proj1}}" target="_blank" rel="noopener">Source</a>
+            <h3 style="margin:0 0 6px">📄 პირადი პორტფოლიო</h3>
+            <span class="badge">HTML/CSS</span> <span class="badge">GitHub Pages</span>
+            <p class="muted">ერთგვერდიანი, სწრაფი და ხელმისაწვდომი პორტფოლიო.</p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap">
+              <a class="btn ghost" href="https://avtotrainer.github.io/niko" target="_blank" rel="noopener">Live</a>
+              <a class="btn ghost" href="https://github.com/avtotrainer/niko" target="_blank" rel="noopener">Source</a>
             </div>
           </article>
 
           <article class="card">
-            <header>
-              <h3 style="margin:0">🗺️ {{პროექტი 2}}</h3>
-              <span class="tag">Python</span> <span class="tag">CLI</span>
-            </header>
-            <p class="muted">{{აღწერა}}</p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn ghost" href="{{#}}" target="_blank" rel="noopener">Live</a>
-              <a class="btn ghost" href="{{https://github.com/user/proj2}}" target="_blank" rel="noopener">Source</a>
-            </div>
+            <h3 style="margin:0 0 6px">🔐 კრიპტო-დემო CLI</h3>
+            <span class="badge">Bash</span> <span class="badge">SHA-256</span>
+            <p class="muted">ფაილის ჰაშის მიღება და შედარება რეპოში არსებულ კონტროლთან.</p>
+<pre><code># hash.sh
+sha256sum &quot;$1&quot; | awk '{print $1}'</code></pre>
           </article>
 
           <article class="card">
-            <header>
-              <h3 style="margin:0">🔐 {{პროექტი 3}}</h3>
-              <span class="tag">Bash</span> <span class="tag">Linux</span>
-            </header>
-            <p class="muted">{{აღწერა}}</p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn ghost" href="{{#}}" target="_blank" rel="noopener">Live</a>
-              <a class="btn ghost" href="{{https://github.com/user/proj3}}" target="_blank" rel="noopener">Source</a>
-            </div>
+            <h3 style="margin:0 0 6px">🤖 ავტო-კომიტი</h3>
+            <span class="badge">Bash</span> <span class="badge">Git</span>
+            <p class="muted">ტაიმსტამპიანი კომიტი + push ერთ ბრძანებაში.</p>
+<pre><code># auto.sh
+git add -A
+git commit -m &quot;update: $(date +%F-%T)&quot;
+git push</code></pre>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section id="skills">
       <div class="container">
         <h2>უნარები</h2>
         <div class="grid cols-2">
           <div class="card">
-            <strong>ტექნოლოგიები</strong>
-            <p class="muted">HTML · CSS · JavaScript · Git · GitHub · Linux (Manjaro/Ubuntu) · Bash · WSL/WSLg</p>
+            <h3 style="margin:0 0 6px">ტექნოლოგიები</h3>
+            <p class="muted">Linux (Manjaro/Ubuntu) · GNOME · Bash · Git · GitHub · GitHub Pages · WSL/WSLg</p>
+            <div>
+              <div class="muted" style="margin:6px 0 4px">Bash</div>
+              <div class="bar"><i style="width:88%"></i></div>
+              <div class="muted" style="margin:10px 0 4px">Git/GitHub</div>
+              <div class="bar"><i style="width:85%"></i></div>
+              <div class="muted" style="margin:10px 0 4px">Linux Basics</div>
+              <div class="bar"><i style="width:90%"></i></div>
+            </div>
           </div>
           <div class="card">
-            <strong>რბილი უნარები</strong>
-            <p class="muted">გუნდური მუშაობა · პრეზენტაცია · პრობლემების გადაჭრა · დროის მართვა</p>
+            <h3 style="margin:0 0 6px">რბილი უნარები</h3>
+            <p class="muted">გუნდური მუშაობა · პრეზენტაცია (Slides) · კომუნიკაცია (Chat/Meet) · პრობლემების გადაჭრა.</p>
+            <ul class="muted" style="margin:8px 0 0 16px">
+              <li>კოდ-რევიუების ინიციაცია და კომენტარების დამუშავება.</li>
+              <li>დავალებების დაყოფა/დეკომპოზიცია დროით.</li>
+              <li>მონაცემებისა და არგუმენტების მკაფიო ფორმულირება.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- TIMELINE -->
+    <section id="timeline">
+      <div class="container">
+        <h2>დროითი ხაზი</h2>
+        <div class="card">
+          <div class="tl">
+            <div class="tli"><b>დღე 1:</b> Manjaro Linux-ის ინსტალაცია, GNOME და სისტემის განახლება.</div>
+            <div class="tli"><b>დღე 2:</b> ტერმინალის საბაზო ბრძანებები, ფაილური სტრუქტურა.</div>
+            <div class="tli"><b>დღე 3:</b> Git/GitHub, SSH გასაღებები, პირველი commit/push.</div>
+            <div class="tli"><b>დღე 4:</b> GitHub Pages — სტატიკური საიტის აგება და <b>გამოქვეყნება</b>.</div>
+            <div class="tli"><b>დღე 5:</b> WSL/WSLg კონფიგურაცია Windows გარემოში.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG (stub) -->
+    <section id="blog">
+      <div class="container">
+        <h2>ბლოგი (მალე)</h2>
+        <div class="grid cols-3">
+          <article class="card sm">
+            <h3 style="margin:0 0 6px">რატომ მიყვარს Bash</h3>
+            <p class="muted">პატარა სკრიპტით დღის განმავლობაში საათებს ზოგავ.</p>
+          </article>
+          <article class="card sm">
+            <h3 style="margin:0 0 6px">GitHub Pages სისწრაფე</h3>
+            <p class="muted">უფასო ჰოსტინგი, მარტივი დეფლოი და კარგი SEO.</p>
+          </article>
+          <article class="card sm">
+            <h3 style="margin:0 0 6px">WSLg პრაქტიკაში</h3>
+            <p class="muted">Linux GUI აპები Windows-ში — რატომ იყო ეს game-changer ჩემთვის.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <h2>კონტაქტი</h2>
         <div class="grid cols-2">
           <div class="card">
-            <p class="muted">მიწერე ელფოსტაზე ან მომძებნე GitHub-ზე.</p>
-            <p>✉️ <a href="mailto:{{you@example.com}}">{{you@example.com}}</a></p>
-            <p>🐙 <a href="{{https://github.com/username}}" target="_blank" rel="noopener">github.com/username</a></p>
+            <p class="muted">მომწერე ან გადახედე ჩემს ცოცხალ გვერდს/რეპოზიტორს.</p>
+            <p>✉️ <a href="mailto:nikolozi409@din.ge">nikolozi409@din.ge</a></p>
+            <p>🐙 <a href="https://github.com/avtotrainer/niko" target="_blank" rel="noopener">github.com/avtotrainer/niko</a></p>
+            <p>🔗 <a href="https://avtotrainer.github.io/niko" target="_blank" rel="noopener">avtotrainer.github.io/niko</a></p>
           </div>
-          <div class="card">
-            <form action="https://formspree.io/f/{{your-id}}" method="POST">
-              <label>
-                სახელი
-                <input name="name" required />
-              </label>
-              <label>
-                ელ-ფოსტა
-                <input type="email" name="email" required />
-              </label>
-              <label>
-                შეტყობინება
-                <textarea name="message" rows="3" required></textarea>
-              </label>
-              <input class="btn" type="submit" value="გაგზავნა" />
-              <small class="muted">* Formspree/თავსებადი სერვისის ID ჩასვი ან ამოიღე ფორმა.</small>
-            </form>
+          <div class="card" style="display:grid; grid-template-columns:120px 1fr; gap:12px; align-items:center">
+            <img
+              alt="QR — avtotrainer.github.io/niko"
+              width="120" height="120"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&ecc=H&data=https%3A%2F%2Favtotrainer.github.io%2Fniko%2F">
+            <p class="muted">სკანირებით გადადი ჩემს Live გვერდზე. (თუ QR არ ჩნდება, ინტერნეტი შეამოწმე.)</p>
           </div>
         </div>
       </div>
@@ -283,43 +307,28 @@
   <footer>
     <div class="container">
       <div class="sep"></div>
-      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
-        <span>© <span id="y"></span> {{სახელი გვარი}}</span>
+      <div class="foot">
+        <span>© <span id="y"></span> ნიკოლოზ ჯიბლაძე</span>
         <span class="muted">განახლდა: <span id="lm"></span></span>
+        <span class="muted">საიტი: <a href="https://avtotrainer.github.io/niko" target="_blank" rel="noopener">niko</a></span>
       </div>
     </div>
   </footer>
 
   <script>
-    // ბოლო განახლების თარიღი + წელი
     document.getElementById('y').textContent = new Date().getFullYear();
     document.getElementById('lm').textContent = new Date(document.lastModified).toLocaleDateString('ka-GE');
-
-    // თემის გადამრთველი (light/dark/auto)
-    const btn = document.querySelector('.theme-toggle');
-    const root = document.documentElement;
-    const KEY='theme-pref';
-    const set = v => { root.setAttribute('data-theme', v); localStorage.setItem(KEY, v); };
-    const get = () => localStorage.getItem(KEY) || 'auto';
-    set(get());
-    btn?.addEventListener('click', ()=>{
-      const cur=get();
-      const next = cur==='auto' ? 'light' : (cur==='light' ? 'auto' : 'auto');
-      // მსუბუქი ციკლი: auto -> light -> auto (სურვილით დაამატე 'dark')
-      set(next);
-      btn.textContent = next==='light' ? '🌞' : '🌓';
-    });
   </script>
 
-  <!-- (არასავალდებულო) სტრუქტურირებული მონაცემები -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Person",
-    "name":"{{სახელი გვარი}}",
-    "url":"{{https://user.github.io/portfolio}}",
-    "email":"mailto:{{you@example.com}}",
-    "sameAs":["https://github.com/{{username}}"]
+    "name":"ნიკოლოზ ჯიბლაძე",
+    "email":"mailto:nikolozi409@din.ge",
+    "url":"https://avtotrainer.github.io/niko",
+    "sameAs":["https://github.com/avtotrainer/niko"]
   }
   </script>
 </body>
